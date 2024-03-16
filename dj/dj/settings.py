@@ -29,7 +29,8 @@ SECRET_KEY = 'django-insecure-x)+c!^y3d6p6o*ov4to-%+00f(+z&df=%s$d&_2**7s(2v)qaf
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://cirrostrats.onrender.com', 'https://cirrostrats-xfln.onrender.com/']
+CSRF_TRUSTED_ORIGINS = ['https://cirrostrats.onrender.com',
+                        'https://cirrostrats-xfln.onrender.com/']
 
 # Application definition
 
@@ -40,14 +41,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
     'dj_app'
-    
 ]
+
+CORS_ALLOWED_ORIGINS = ['http://localhost:5173']
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',

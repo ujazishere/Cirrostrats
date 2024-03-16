@@ -14,6 +14,15 @@ from time import sleep
 from django.shortcuts import render
 from django.http import JsonResponse
 import os
+from rest_framework.viewsets import ModelViewSet
+from .models import Flight
+from .api.serializers import PostSerializer
+
+
+class FlightViewSet(ModelViewSet):
+    queryset = Flight.objects.all()
+    serializer_class = PostSerializer
+
 
 '''
 views.py runs as soon as the base web is requested. Hence, GateCheckerThread() is run in the background right away.
